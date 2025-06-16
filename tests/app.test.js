@@ -3,7 +3,7 @@ const app = require('../app');
 
 // Test suite for Finance Tracker API
 describe('Finance Tracker API Tests', () => {
-    
+
     /**
      * Test health check endpoint
      */
@@ -12,7 +12,7 @@ describe('Finance Tracker API Tests', () => {
             const response = await request(app)
                 .get('/health')
                 .expect(200);
-            
+
             expect(response.body.status).toBe('healthy');
             expect(response.body).toHaveProperty('uptime');
         });
@@ -26,7 +26,7 @@ describe('Finance Tracker API Tests', () => {
             const response = await request(app)
                 .get('/metrics')
                 .expect(200);
-            
+
             expect(response.text).toContain('finance_api_requests_total');
             expect(response.text).toContain('finance_api_response_time_seconds');
         });

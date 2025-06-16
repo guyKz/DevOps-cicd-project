@@ -30,7 +30,7 @@ const responseTimeHistogram = new promClient.Histogram({
 promClient.collectDefaultMetrics({ register });
 
 // In-memory storage (replace with database in production)
-let transactions = [];
+const transactions = [];
 let nextId = 1;
 
 /**
@@ -39,19 +39,19 @@ let nextId = 1;
  */
 app.use((req, res, next) => {
     const start = Date.now();
-    
+
     res.on('finish', () => {
         const duration = (Date.now() - start) / 1000;
-        
+
         // Record metrics
         httpRequestsTotal.inc({
             method: req.method,
             endpoint: req.path
         });
-        
+
         responseTimeHistogram.observe(duration);
     });
-    
+
     next();
 });
 
@@ -87,21 +87,21 @@ app.get('/metrics', async (req, res) => {
  */
 app.post('/api/transactions', (req, res) => {
     const { description, amount, type } = req.body;
-    
+
     // Validate required fields
     if (!description || !amount || !type) {
         return res.status(400).json({
             error: 'Missing required fields: description, amount, type'
         });
     }
-    
+
     // Validate transaction type
     if (!['income', 'expense'].includes(type)) {
         return res.status(400).json({
             error: 'Type must be "income" or "expense"'
         });
     }
-    
+
     // Create new transaction
     const transaction = {
         id: nextId++,
@@ -110,9 +110,9 @@ app.post('/api/transactions', (req, res) => {
         type: type,
         date: new Date().toISOString()
     };
-    
+
     transactions.push(transaction);
-    
+
     res.status(201).json({
         message: 'Transaction added successfully',
         transaction: transaction
@@ -128,13 +128,13 @@ app.get('/api/transactions', (req, res) => {
     const income = transactions
         .filter(t => t.type === 'income')
         .reduce((sum, t) => sum + t.amount, 0);
-    
+
     const expenses = transactions
         .filter(t => t.type === 'expense')
         .reduce((sum, t) => sum + t.amount, 0);
-    
+
     const balance = income - expenses;
-    
+
     res.status(200).json({
         transactions: transactions,
         summary: {
@@ -154,16 +154,16 @@ app.get('/api/dashboard', (req, res) => {
     const totalIncome = transactions
         .filter(t => t.type === 'income')
         .reduce((sum, t) => sum + t.amount, 0);
-    
+
     const totalExpenses = transactions
         .filter(t => t.type === 'expense')
         .reduce((sum, t) => sum + t.amount, 0);
-    
+
     // Get last 3 transactions
     const recentTransactions = transactions
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 3);
-    
+
     res.status(200).json({
         overview: {
             total_income: totalIncome,
@@ -193,7 +193,7 @@ app.use((req, res) => {
         error: 'Endpoint not found',
         available_endpoints: [
             'GET /health',
-            'GET /metrics', 
+            'GET /metrics',
             'POST /api/transactions',
             'GET /api/transactions',
             'GET /api/dashboard'
@@ -208,7 +208,7 @@ app.listen(PORT, () => {
     console.log(`🚀 Finance Tracker API running on port ${PORT}`);
     console.log(`📊 Health: http://localhost:${PORT}/health`);
     console.log(`📈 Metrics: http://localhost:${PORT}/metrics`);
-    console.log(`💰 API ready for transactions!`);
+    console.log('💰 API ready for transactions!');
 });
 
 module.exports = app;
