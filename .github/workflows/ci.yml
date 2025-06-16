@@ -20,10 +20,13 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm install
+      run: npm ci
+    
+    - name: Install ESLint globally
+      run: npm install -g eslint
     
     - name: Run linting
-      run: npm run lint
+      run: eslint .
     
     - name: Run tests
       run: npm test
