@@ -1,7 +1,7 @@
 # Finance Tracker DevOps CI/CD Project
 
-[![CI Pipeline](https://github.com/YOUR_USERNAME/DevOps-cicd-project/workflows/CI%20Pipeline/badge.svg)](https://github.com/YOUR_USERNAME/DevOps-cicd-project/actions)
-[![CD Pipeline](https://github.com/YOUR_USERNAME/DevOps-cicd-project/workflows/CD%20Pipeline/badge.svg)](https://github.com/YOUR_USERNAME/DevOps-cicd-project/actions)
+[![CI Pipeline](https://github.com/guyKz/DevOps-cicd-project/workflows/CI%20Pipeline/badge.svg)](https://github.com/YOUR_USERNAME/DevOps-cicd-project/actions)
+[![CD Pipeline](https://github.com/guyKz/DevOps-cicd-project/workflows/CD%20Pipeline/badge.svg)](https://github.com/YOUR_USERNAME/DevOps-cicd-project/actions)
 
 ## 📋 Project Overview
 
