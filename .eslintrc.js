@@ -1,20 +1,20 @@
 module.exports = {
     // Environment settings - tells ESLint what global variables are available
     env: {
-        node: true,        // Node.js environment (console, process, etc.)
-        es2021: true,      // Modern JavaScript features
-        jest: true         // Jest testing framework globals (describe, test, expect)
+        node: true,        
+        es2021: true,      
+        jest: true         
     },
 
     // Extends popular ESLint configurations
     extends: [
-        'eslint:recommended'  // Use ESLint's recommended rules
+        'eslint:recommended'  
     ],
 
     // Parser options for modern JavaScript
     parserOptions: {
-        ecmaVersion: 'latest',  // Latest ECMAScript version
-        sourceType: 'module'    // Allow import/export statements
+        ecmaVersion: 'latest',  
+        sourceType: 'module'    
     },
 
     // Custom rules for your project
@@ -43,24 +43,24 @@ module.exports = {
         'comma-dangle': ['error', 'never'], // No trailing commas
 
         // ES6+ Rules
-        'arrow-spacing': 'error',           // Spaces around arrow functions
-        'template-curly-spacing': 'error'   // No spaces in template literals
+        'arrow-spacing': 'error',           
+        'template-curly-spacing': 'error'   
     },
 
     // Global variables that ESLint should recognize
     globals: {
-        'process': 'readonly',    // Node.js process object
-        'Buffer': 'readonly',     // Node.js Buffer
-        '__dirname': 'readonly',  // Node.js directory name
-        '__filename': 'readonly'  // Node.js file name
+        'process': 'readonly',    
+        'Buffer': 'readonly',     
+        '__dirname': 'readonly',  
+        '__filename': 'readonly'  
     },
 
     // Ignore patterns - files/folders ESLint should skip
     ignorePatterns: [
-        'node_modules/',     // Don't lint npm packages
-        'dist/',             // Don't lint build output
-        'build/',            // Don't lint build folder
-        'coverage/',         // Don't lint test coverage reports
-        '*.min.js'          // Don't lint minified files
+        'node_modules/',     
+        'dist/',             
+        'build/',            
+        'coverage/',         
+        '*.min.js'          
     ]
 };
