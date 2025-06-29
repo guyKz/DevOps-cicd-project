@@ -13,7 +13,7 @@ module.exports = {
 
     // Parser options for modern JavaScript
     parserOptions: {
-        ecmaVersion: 'latest',  // Latest ECMAScript version
+        ecmaVersion: 'latest',  // Latest ECMAScript versions
         sourceType: 'module'    // Allow import/export statements
     },
 

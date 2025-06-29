@@ -151,55 +151,11 @@ Triggered on: **Push to main branch**
 
 ## 🌐 Live Deployment
 
- [Your Render URL]
+ [https://finance-tracker-api-hv45.onrender.com/]
 
 Test the live API:
 ```bash
-curl https://your-app-name.onrender.com/health
+curl https://finance-tracker-api-hv45.onrender.com/health
 ```
-
-## 📝 Development Workflow
-
-1. **Create feature branch**
-2. **Make changes**
-3. **Run tests locally**
-4. **Create Pull Request**
-5. **CI pipeline runs**
-6. **Get approval**
-7. **Merge to main**
-8. **CD pipeline deploys**
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-npm test
-
-# Run linting
-npm run lint
-
-# Run with coverage
-npm test -- --coverage
-```
-
-## 📦 Docker
-
-### Build image:
-```bash
-docker build -t finance-tracker-api .
-```
-
-### Run container:
-```bash
-docker run -p 3000:3000 finance-tracker-api
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch
-3. Make changes
-4. Add tests
-5. Submit Pull Request
 
 
