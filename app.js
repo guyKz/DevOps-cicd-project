@@ -177,13 +177,13 @@ app.get('/api/dashboard', (req, res) => {
 });
 
 // Commented endpoint for CI/CD demonstration
-// app.get('/cicd-test', (req, res) => {
-//     res.status(200).json({
-//         message: 'CI/CD Pipeline Working Successfully!',
-//         timestamp: new Date().toISOString(),
-//         version: '1.0.0'
-//     });
-// });
+ app.get('/cicd-test', (req, res) => {
+     res.status(200).json({
+         message: 'CI/CD Pipeline Working Successfully!',
+         timestamp: new Date().toISOString(),
+         version: '1.0.0'
+     });
+ });
 
 /**
  * Handle 404 errors for undefined routes
